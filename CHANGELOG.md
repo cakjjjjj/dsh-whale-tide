@@ -2,6 +2,13 @@
 
 ## 未发布
 
+- **全新安装的几处阻碍（2026-11-23，来自朋友在 Windows 上的首次安装反馈）**：
+  - 鲸梦体检里 `MEMORY.md` / `GOALS.md` / `AGENTS.md` 缺失原来报 `error`（「不见了，从备份恢复」），
+    对全新用户等于每次体检都报警。改成 `warn` + 「不存在，可新建或从 templates/ 复制」。
+  - 加 `templates/` 三份最小骨架（`MEMORY.md` / `GOALS.md` / `AGENTS.md`），`package.json` 的 `files` 一并带上。
+  - `/proc/meminfo` 只在 Linux 上读；Windows/macOS 直接标「非 Linux 平台，跳过」，不再误报。
+  - README 新增「装完先做三件事」：三份根文档、embedding 模型与镜像、确认安装；
+    并补了 Windows 上 `github:` 写法不可用时改用的 tarball 安装命令。
 - **跨会话「最近对话」注入 + 心跳看得到你最后说话的时间**（2026-11-23）：
   心跳和鲸梦跑在各自的会话里，上下文只有「你最近醒过」「相关记忆」，向量检索只会命中
   跟提示词语义相近的记忆——所以它明明每天都在跟你说话，醒来却以为「好几天没见」。

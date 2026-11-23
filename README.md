@@ -48,6 +48,26 @@ dsh plugin --profile web add link:/absolute/path/to/dsh-whale-tide
 
 还没发到 npm；发版之后可以直接 `dsh plugin --profile web add dsh-whale-tide`。
 
+## 装完先做三件事
+
+**一、三份根文档**。插件不自带内容（那是你自己的记忆），但仓库里有最小骨架，复制到工作区根目录：
+
+```bash
+cp templates/MEMORY.md templates/GOALS.md templates/AGENTS.md <你的工作区>/
+```
+
+缺了也能跑，只是鲸梦每次体检会提示一句「不存在」。
+
+**二、embedding 模型**。第一次用到记忆时会下载 `bge-small-zh`（约 23MB）。国内网络拉不到 `huggingface.co` 时，配置里的 `mirror` 默认已经指向 `https://hf-mirror.com`；镜像也不通就手动把模型放到数据目录的 `models/` 下——检索会退回关键词一路，功能不崩。
+
+**三、确认装上了**。刷新页面，设置里应该出现「潮汐」。工具这时候已经可用：`memory_search` / `memory_stats` / `feeling_status` / `heartbeat_plan` / `dream_keep`。
+
+`github:` 这种安装写法在某些环境（比如 Windows 本机的 git）不可用，可以改用 tarball：
+
+```bash
+dsh plugin --profile web add https://github.com/cakjjjjj/dsh-whale-tide/archive/refs/tags/v0.4.0.tar.gz
+```
+
 安装时会一并装 `@huggingface/transformers`（本地推理用，含原生 onnx 运行时，体积略大）；embedding 模型权重约 23MB，第一次用到时才下载。
 
 ## 最小可用
