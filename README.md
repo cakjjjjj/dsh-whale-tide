@@ -230,7 +230,7 @@ GET  /whale-tide/api/schedule  任务清单
 ## 工具与自检
 
 ```bash
-npm test                                    # 183 个用例
+npm test                                    # 188 个用例
 node tools/tick.mjs --json                  # 看这一轮值不值得醒
 node tools/feeling.mjs "我想你了" "你真笨"    # 手动试情绪判读
 node tools/sim.mjs 7 20                     # 模拟若干天的情绪曲线
