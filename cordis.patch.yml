@@ -1,0 +1,5 @@
+# dsh-whale-tide 的 Loader 补丁：一行 Host 插件。
+- insert:
+    - id: whale-tide
+      name: dsh-whale-tide
+      config: {}

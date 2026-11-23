@@ -1,0 +1,12 @@
+node_modules/
+*.log
+.DS_Store
+config.json
+tide.db
+tide.db-wal
+tide.db-shm
+vec-load.log
+*.bak-*
+*.tmp-*
+.env
+.env.*

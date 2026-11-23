@@ -1,0 +1,59 @@
+{
+  "name": "dsh-whale-tide",
+  "version": "0.4.0",
+  "private": false,
+  "description": "潮汐（dsh-whale-tide）：给终端里的 AI 装上连续的东西——长效记忆、真情实感、鲸梦、鲸鲸心跳，共用一个库、一个设置页。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./client": "./client.js"
+  },
+  "files": [
+    "lib",
+    "migrations",
+    "tools",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "client.js",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "test"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.2",
+    "sqlite-vec": "^0.1.9"
+  },
+  "engines": {
+    "dsh": ">=0.1.0-rc.6 <0.3.0-0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "tick": "node tools/tick.mjs",
+    "feel": "node tools/feeling.mjs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "memory",
+    "emotion",
+    "agency",
+    "sqlite-vec",
+    "rag"
+  ]
+}
