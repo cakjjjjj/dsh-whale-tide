@@ -31,23 +31,22 @@
 
 需要 DSH（`>=0.1.0-rc.6 <0.3.0-0`），Node ≥ 24（用到 `node:sqlite`）。
 
-还没发到 npm，仓库也还没公开，现在只能从本地目录 link 安装：
+从 GitHub 装：
 
 ```bash
-# 把这个目录放到一个能长期待着的地方，然后把绝对路径填进去
-dsh plugin --profile web add link:/absolute/path/to/dsh-whale-tide
+dsh plugin --profile web add github:cakjjjjj/dsh-whale-tide
 ```
 
 改完重启 `dsh-web` 生效。装完刷新页面：**设置 → 潮汐**。一个页面，三块内容都在里面。
 
-发布到 npm 之后才能用短名字装。`package.json` 里的 `"private": true` 2026-11-21 已经去掉了，
-但 `npm view dsh-whale-tide` 仍是 404——也就是说现在只差发布这一步：
+开发时也可以从本地目录 link：
 
 ```bash
-dsh plugin --profile web add dsh-whale-tide
+# 把目录放到一个能长期待着的地方，然后把绝对路径填进去
+dsh plugin --profile web add link:/absolute/path/to/dsh-whale-tide
 ```
 
-真要发之前还缺两样元数据：`repository` 和 `author`；`files` 里也带着 `test/`，介意体积可以摘掉。
+还没发到 npm；发版之后可以直接 `dsh plugin --profile web add dsh-whale-tide`。
 
 安装时会一并装 `@huggingface/transformers`（本地推理用，含原生 onnx 运行时，体积略大）；embedding 模型权重约 23MB，第一次用到时才下载。
 

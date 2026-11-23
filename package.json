@@ -55,5 +55,9 @@
     "agency",
     "sqlite-vec",
     "rag"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cakjjjjj/dsh-whale-tide.git"
+  }
 }
