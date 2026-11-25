@@ -76,13 +76,18 @@ dsh plugin --profile web add https://github.com/cakjjjjj/dsh-whale-tide/archive/
 
 ```bash
 # 1) 心跳脚本能跑：输出 skip 或 wake 都算正常（说明库能开、判断逻辑在）
-node plugins/dsh-whale-tide/tools/tick.mjs --json
+#    路径按你装在哪来：从仓库跑是 plugins/dsh-whale-tide/，
+#    从插件市场/github 装是 $DSH_HOME/profiles/<profile>/node_modules/dsh-whale-tide/
+node <插件目录>/tools/tick.mjs --json
 
 # 2) 测试全过（188 个用例）
-cd plugins/dsh-whale-tide && npm test
+cd <插件目录> && npm test
 
 # 3) 设置页出现「潮汐」，三块（真情实感 / 鲸梦 / 鲸鲸心跳）都加载出来
 ```
+
+第 1 步若报「找不到记忆库：…/tide.db」，说明数据目录不对（不是库坏了）：
+它会把要找的路径打出来，照那个路径检查 `TIDE_DATA_DIR` / `DSH_HOME`。
 
 第三步做不到时，先看浏览器控制台有没有 403/404，再确认 `dsh-web` 重启过。
 
